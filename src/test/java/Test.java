@@ -5,9 +5,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("SpringConfig.xml");
-        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
-        System.out.println(userDao.selectUser(1));
+//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("SpringConfig.xml");
+//        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
+//        System.out.println(userDao.selectUser(1));
     }
 
 }

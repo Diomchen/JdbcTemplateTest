@@ -29,10 +29,20 @@
             p:username="${jdbc.username}"
             p:password="${jdbc.password}"/>
 
-    <bean id="jdbcTemplate"
-          class="org.springframework.jdbc.core.JdbcTemplate"
-          p:dataSource-ref="datasource"/>
+    <!--<bean id="jdbcTemplate"-->
+          <!--class="org.springframework.jdbc.core.JdbcTemplate"-->
+          <!--p:dataSource-ref="datasource"/>-->
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+          p:dataSource-ref="datasource"
+          p:configLocation="classpath:mybatisSpringConfig.xml"
+          p:mapperLocations="*.xml"/>
+
+    <bean class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="sqlSessionFactory"/>
+    </bean>
 
     <bean id="userDao" class="my.Spring.UserDao"/>
+    <bean id="userTemplateDao" class="my.Spring.UserTemplateDao"/>
 
 </beans>
